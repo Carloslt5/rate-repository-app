@@ -9,6 +9,7 @@
   ],
   "include": [
     "./*.tsx",
+    "src/**/*.tsx",
     ".eslintrc.js"
   ]
 }

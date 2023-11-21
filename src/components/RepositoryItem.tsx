@@ -19,14 +19,14 @@ export const RepositoryItem: React.FC<Repository> = ({ id, fullName, description
       <StyledText fontWeight="bold" color="textSecondary" fontSize='subheading'>
         Full Name:{fullName}
       </StyledText >
-      <StyledText > Description: {description}</StyledText >
+      <StyledText >Description: {description}</StyledText >
       <StyledText color="textSecondary" >
         Lenguage: {language}
       </StyledText >
-      <StyledText > Start: {stargazersCount}</StyledText >
-      <StyledText > Rating: {ratingAverage}</StyledText >
-      <StyledText > Forks: {forksCount}</StyledText >
-      <StyledText > Review: {reviewCount}</StyledText >
+      <StyledText >Start: {stargazersCount}</StyledText >
+      <StyledText >Rating: {ratingAverage}</StyledText >
+      <StyledText >Forks: {forksCount}</StyledText >
+      <StyledText >Review: {reviewCount}</StyledText >
     </View >
   )
 }

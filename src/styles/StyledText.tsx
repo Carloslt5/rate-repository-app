@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   }
 })
 
-const StyledText: React.FC<StyledTextProps> = ({ children, color, fontSize, fontWeight, style, ...props }) => {
+const StyledText = ({ children, color, fontSize, fontWeight, style, ...props }: StyledTextProps) => {
   const textStyle = [
     styles.text,
     color === 'textSecondary' && styles.colorTextSecondary,
@@ -41,7 +41,11 @@ const StyledText: React.FC<StyledTextProps> = ({ children, color, fontSize, font
     style
   ]
 
-  return <NativeText style={textStyle} {...props} />
+  return (
+    <NativeText style={textStyle} {...props} >
+      {children}
+    </NativeText>
+  )
 }
 
 export default StyledText

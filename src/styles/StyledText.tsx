@@ -1,46 +1,47 @@
-import React from 'react'
-import { StyleSheet, Text } from 'react-native'
+import React, { type ReactNode } from 'react'
+import { Text as NativeText, type StyleProp, StyleSheet, type TextStyle } from 'react-native'
+import theme from './theme'
 
 interface StyledTextProps {
-  text?: string
-  bold?: boolean
-  big?: boolean
-  small?: boolean
-  green?: boolean
-  children?: React.ReactNode
+  children: ReactNode
+  color?: 'textSecondary' | 'primary'
+  fontSize?: 'subheading'
+  fontWeight?: 'normal' | 'bold'
+  style?: StyleProp<TextStyle>
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   text: {
-    fontSize: 14,
-    color: 'grey'
+    color: theme.colors.textPrimary,
+    fontSize: theme.fontSizes.body,
+    fontFamily: theme.fonts.main,
+    fontWeight: theme.fontWeights.normal
   },
-  bold: {
-    fontWeight: 'bold'
+  colorTextSecondary: {
+    color: theme.colors.textSecondary
   },
-  big: {
-    fontSize: 20
+  colorPrimary: {
+    color: theme.colors.primary
   },
-  small: {
-    fontSize: 12
+  fontSizeSubheading: {
+    fontSize: theme.fontSizes.subheading
   },
-  green: {
-    color: '#009b75'
+  fontWeightBold: {
+    fontWeight: theme.fontWeights.bold
   }
 })
 
-export default function StyledText({ text, bold, big, small, green, children }: StyledTextProps) {
-  const textStyles = [
-    style.text,
-    bold !== undefined && style.bold,
-    big !== undefined && style.big,
-    small !== undefined && style.small,
-    green !== undefined && style.green
+const StyledText: React.FC<StyledTextProps> = ({ children, color, fontSize, fontWeight, style, ...props }) => {
+  const textStyle = [
+    styles.text,
+    color === 'textSecondary' && styles.colorTextSecondary,
+    color === 'primary' && styles.colorPrimary,
+    fontSize === 'subheading' && styles.fontSizeSubheading,
+    fontWeight === 'bold' && styles.fontWeightBold,
+    style
   ]
 
-  return (
-    <Text style={textStyles}>
-      {children}
-    </Text>
-  )
+  return <NativeText style={textStyle} {...props} />
 }
+
+export default StyledText

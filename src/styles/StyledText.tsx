@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   },
   language: {
     alignSelf: 'flex-start',
-    backgroundColor: theme.colors.primary,
+    backgroundColor: theme.colors.green700,
     borderRadius: 4,
     color: theme.colors.white,
     padding: 4,

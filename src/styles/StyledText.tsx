@@ -1,12 +1,13 @@
 import React, { type ReactNode } from 'react'
-import { Text as NativeText, type StyleProp, StyleSheet, type TextStyle } from 'react-native'
+import { Text, type StyleProp, StyleSheet, type TextStyle } from 'react-native'
 import theme from './theme'
 
 interface StyledTextProps {
   children: ReactNode
-  color?: 'textSecondary' | 'primary'
+  color?: string
   fontSize?: 'subheading'
   fontWeight?: 'normal' | 'bold'
+  bgColor?: boolean
   style?: StyleProp<TextStyle>
 }
 
@@ -21,30 +22,39 @@ const styles = StyleSheet.create({
     color: theme.colors.textSecondary
   },
   colorPrimary: {
-    color: theme.colors.primary
+    color: theme.colors.textPrimary
   },
   fontSizeSubheading: {
     fontSize: theme.fontSizes.subheading
   },
   fontWeightBold: {
     fontWeight: theme.fontWeights.bold
+  },
+  language: {
+    alignSelf: 'flex-start',
+    backgroundColor: theme.colors.primary,
+    borderRadius: 4,
+    color: theme.colors.white,
+    padding: 4,
+    marginVertical: 4
   }
 })
 
-const StyledText = ({ children, color, fontSize, fontWeight, style, ...props }: StyledTextProps) => {
+const StyledText = ({ children, color, fontSize, fontWeight, bgColor, style, ...props }: StyledTextProps) => {
   const textStyle = [
     styles.text,
     color === 'textSecondary' && styles.colorTextSecondary,
-    color === 'primary' && styles.colorPrimary,
+    color === 'textPrimary' && styles.colorPrimary,
     fontSize === 'subheading' && styles.fontSizeSubheading,
     fontWeight === 'bold' && styles.fontWeightBold,
+    bgColor === true && styles.language,
     style
   ]
 
   return (
-    <NativeText style={textStyle} {...props} >
+    <Text style={textStyle} {...props} >
       {children}
-    </NativeText>
+    </Text>
   )
 }
 

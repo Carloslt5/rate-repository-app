@@ -1,9 +1,10 @@
 import React from 'react'
-import { View, StyleSheet, Image } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import { type Repository } from '../data/Repository.type'
-import StyledText from '../styles/StyledText'
+// import StyledText from '../styles/StyledText'
 import { RepositoryStats } from './RepositoryStats'
 import theme from '../styles/theme'
+import RepositoryItemHeader from './RepositoryItemHeader'
 
 const style = StyleSheet.create({
   container: {
@@ -26,21 +27,14 @@ const style = StyleSheet.create({
 })
 
 export const RepositoryItem: React.FC<Repository> = (repo) => {
-  const { id, fullName, description, language, ownerAvatarUrl } = repo
+  const { id } = repo
 
   return (
     <View
       key={id}
       style={style.container}
     >
-      <Image style={style.image} source={{ uri: ownerAvatarUrl }}></Image>
-      <StyledText fontWeight="bold" color="textSecondary" fontSize='subheading'>
-        {fullName}
-      </StyledText >
-      <StyledText >Description: {description}</StyledText >
-      <StyledText style={style.lenguage} >
-        {language}
-      </StyledText >
+      <RepositoryItemHeader {...repo} />
       <RepositoryStats {...repo} />
     </View >
   )

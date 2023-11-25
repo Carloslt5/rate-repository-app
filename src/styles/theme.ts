@@ -12,6 +12,7 @@ const theme = {
     white: '#fafafa'
   },
   fontSizes: {
+    small: 12,
     body: 14,
     subheading: 18
   },

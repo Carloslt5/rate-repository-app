@@ -16,9 +16,9 @@ const RepositoryItemHeader: React.FC<Repository> = ({ fullName, description, lan
           {fullName}
         </StyledText >
         <StyledText color='textPrimary'>
-          Description: {description}
+          {description}
         </StyledText >
-        <StyledText bgColor>
+        <StyledText bgColor fontSize='small'>
           {language}
         </StyledText >
       </View>

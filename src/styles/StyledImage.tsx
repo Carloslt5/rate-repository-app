@@ -1,6 +1,5 @@
 import React from 'react'
 import { StyleSheet, type ImageSourcePropType, Image } from 'react-native'
-import theme from '../styles/theme'
 
 interface StyledImageProps {
   source: ImageSourcePropType
@@ -11,7 +10,6 @@ const styles = StyleSheet.create({
   image: {
     width: 48,
     height: 48,
-    backgroundColor: theme.colors.green500,
     borderRadius: 4
   }
 })

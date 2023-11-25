@@ -5,7 +5,7 @@ import { RepositoryList } from './RepositoryList'
 
 export const Main = () => {
   return (
-    <View style={{ marginTop: Constants.statusBarHeight }}>
+    <View style={{ marginTop: Constants.statusBarHeight, flex: 1 }}>
       <RepositoryList />
     </View>
   )

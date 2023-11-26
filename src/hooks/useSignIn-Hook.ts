@@ -11,6 +11,7 @@ export const useSignIn = () => {
   }
 
   const handleSubmit = () => {
+    console.log('Date Sign In', signInData)
     setSignInData({ email: '', password: '' })
   }
 

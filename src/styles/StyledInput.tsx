@@ -1,5 +1,5 @@
 import React from 'react'
-import { type StyleProp, StyleSheet, TextInput, type TextStyle, type TextInputProps } from 'react-native'
+import { type StyleProp, StyleSheet, TextInput, type TextStyle, type TextInputProps, Platform } from 'react-native'
 import theme from './theme'
 import { useFocus } from '../hooks/useFocus-Hook'
 
@@ -17,8 +17,10 @@ const styles = StyleSheet.create({
     marginBottom: 6
   },
   inputFocus: {
-    borderColor: theme.colors.green500
+    borderColor: theme.colors.green500,
+    outlineColor: Platform.OS === 'web' && theme.colors.green500
   }
+
 })
 
 export const StyledInput = ({ style, ...props }: StyledInputProps) => {

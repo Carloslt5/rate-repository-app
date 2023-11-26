@@ -9,6 +9,7 @@ export const useFocus = () => {
 
   return {
     isFocused,
+    setIsFocused,
     handleFocus
   }
 }

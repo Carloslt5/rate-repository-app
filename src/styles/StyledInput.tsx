@@ -18,9 +18,12 @@ const styles = StyleSheet.create({
   },
   inputFocus: {
     borderColor: theme.colors.green500,
-    outlineColor: Platform.OS === 'web' && theme.colors.green500
+    ...Platform.select({
+      web: {
+        outlineColor: theme.colors.green500
+      }
+    })
   }
-
 })
 
 export const StyledInput = ({ style, ...props }: StyledInputProps) => {

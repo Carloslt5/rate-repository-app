@@ -1,8 +1,9 @@
 import React from 'react'
-import { Pressable, View } from 'react-native'
+import { View } from 'react-native'
 import { useSignIn } from '../hooks/useSignIn-Hook'
 import { StyledInput } from '../styles/StyledInput'
 import StyledText from '../styles/StyledText'
+import { StyledButton } from '../styles/StyledButton'
 
 const SignInForm = () => {
   const { signInData, handleInputChange, handleSubmit } = useSignIn()
@@ -23,9 +24,14 @@ const SignInForm = () => {
         onChangeText={(text) => { handleInputChange('password', text) }}
       />
 
-      <Pressable onPress={handleSubmit}>
-        <StyledText>Submit</StyledText>
-      </Pressable>
+      <StyledButton onPress={handleSubmit}>
+        <StyledText
+          color='textWhite'
+          fontWeight='bold'
+          align='center'>
+          Submit
+        </StyledText>
+      </StyledButton>
     </View >
   )
 }

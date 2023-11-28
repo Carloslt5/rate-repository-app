@@ -5,6 +5,7 @@ import { useFocus } from '../hooks/useFocus-Hook'
 
 interface StyledInputProps extends TextInputProps {
   style?: StyleProp<TextStyle>
+  error?: boolean
 }
 
 const styles = StyleSheet.create({
@@ -23,15 +24,19 @@ const styles = StyleSheet.create({
         outlineColor: theme.colors.green500
       }
     })
+  },
+  inputError: {
+    borderColor: 'red'
   }
 })
 
-export const StyledInput = ({ style, ...props }: StyledInputProps) => {
-  const { isFocused, handleFocus } = useFocus()
+export const StyledInput = ({ error, style, ...props }: StyledInputProps) => {
+  const { isFocused, handleFocus, handleBlur } = useFocus()
 
   const inputStyle = [
     styles.inputText,
     isFocused && styles.inputFocus,
+    error === true && styles.inputError,
     style
   ]
 
@@ -39,7 +44,7 @@ export const StyledInput = ({ style, ...props }: StyledInputProps) => {
     <TextInput
       style={inputStyle}
       onFocus={handleFocus}
-      onBlur={handleFocus}
+      onBlur={handleBlur}
       {...props} />
   )
 }

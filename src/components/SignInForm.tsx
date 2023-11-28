@@ -22,13 +22,13 @@ const SignInForm = () => {
             message: 'Invalid email address'
           }
         }}
-        render={({ field: { onChange, onBlur, value } }) => (
+        render={({ field: { onChange, value } }) => (
           <StyledInput
             placeholder="Email"
-            onBlur={onBlur}
             onChangeText={onChange}
             value={value}
             keyboardType="email-address"
+            error={!((errors?.email) == null)}
           />
         )}
       />
@@ -50,13 +50,13 @@ const SignInForm = () => {
         rules={{
           required: 'Password is required'
         }}
-        render={({ field: { onChange, onBlur, value } }) => (
+        render={({ field: { onChange, value } }) => (
           <StyledInput
             placeholder="Password"
             secureTextEntry={true}
-            onBlur={onBlur}
             onChangeText={onChange}
             value={value}
+            error={!((errors?.password) == null)}
           />
         )}
       />

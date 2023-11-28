@@ -1,10 +1,12 @@
 const theme = {
   appBar: {
-    textPrimary: '#fafafa'
+    textPrimary: '#edfcf3',
+    textDisable: '#9feabf'
   },
   colors: {
     textPrimary: '#18181b',
     textSecondary: '#009b75',
+    green100: '#d4f7e1',
     green300: '#77dea9',
     green500: '#1dac6d',
     green700: '#0d6f48',

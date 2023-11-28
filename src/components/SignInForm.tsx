@@ -36,6 +36,7 @@ const SignInForm = () => {
         ((errors?.email) != null) &&
         <StyledText
           fontSize='small'
+          fontWeight='bold'
           color='textError'
           style={{ marginBottom: 6 }}
         >
@@ -63,6 +64,7 @@ const SignInForm = () => {
         ((errors?.password) != null) &&
         <StyledText
           fontSize='small'
+          fontWeight='bold'
           color='textError'
           style={{ marginBottom: 6 }}
         >

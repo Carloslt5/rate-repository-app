@@ -1,19 +1,30 @@
 import React from 'react'
-import { Link } from 'react-router-native'
+import { Link, useLocation } from 'react-router-native'
 import StyledText from '../styles/StyledText'
 import theme from '../styles/theme'
 import { StyleSheet } from 'react-native'
 
 const style = StyleSheet.create({
   text: {
+    color: theme.appBar.textDisable
+  },
+  active: {
     color: theme.appBar.textPrimary
   }
 })
 
-const AppTab = ({ active, children, to }: any) => {
+const AppTab = ({ children, to }: any) => {
+  const { pathname } = useLocation()
+  const active = pathname === to
+
+  const textStyle = [
+    style.text,
+    active && style.active
+  ]
+
   return (
     <Link to={to} underlayColor={'transparent'}>
-      <StyledText fontWeight='bold' style={style.text}>
+      <StyledText fontWeight='bold' style={textStyle}>
         {children}
       </StyledText>
     </Link>

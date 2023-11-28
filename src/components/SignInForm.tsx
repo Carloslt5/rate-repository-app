@@ -8,29 +8,46 @@ import { StyledButton } from '../styles/StyledButton'
 import StyledText from '../styles/StyledText'
 
 const SignInForm = () => {
-  const { control, handleSubmit, onSubmit } = useSignIn()
+  const { control, handleSubmit, onSubmit, errors } = useSignIn()
 
   return (
     <View style={{ padding: 10 }}>
       <Controller
+        name="email"
         control={control}
         rules={{
-          required: true
+          required: 'Email is required',
+          pattern: {
+            value: /\S+@\S+\.\S+/,
+            message: 'Invalid email address'
+          }
         }}
         render={({ field: { onChange, onBlur, value } }) => (
           <StyledInput
-            placeholder="First name"
+            placeholder="Email"
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
+            keyboardType="email-address"
           />
         )}
-        name="email"
       />
+      {
+        ((errors?.email) != null) &&
+        <StyledText
+          fontSize='small'
+          color='textError'
+          style={{ marginBottom: 6 }}
+        >
+          {errors.email.message}
+        </StyledText>
+      }
+
       <Controller
+        name="password"
         control={control}
         rules={{
-          required: true
+          required: 'Password is required'
         }}
         render={({ field: { onChange, onBlur, value } }) => (
           <StyledInput
@@ -41,14 +58,24 @@ const SignInForm = () => {
             value={value}
           />
         )}
-        name="password"
       />
+      {
+        ((errors?.password) != null) &&
+        <StyledText
+          fontSize='small'
+          color='textError'
+          style={{ marginBottom: 6 }}
+        >
+          {errors.password.message}
+        </StyledText>
+      }
 
       <StyledButton onPress={handleSubmit(onSubmit)} >
         <StyledText
           color='textWhite'
           fontWeight='bold'
-          align='center'>
+          align='center'
+        >
           Submit
         </StyledText>
       </StyledButton >

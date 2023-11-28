@@ -9,7 +9,8 @@ const theme = {
     green500: '#1dac6d',
     green700: '#0d6f48',
     green900: '#0c4831',
-    white: '#fafafa'
+    white: '#fafafa',
+    error: '#ff6154'
   },
   fontSizes: {
     small: 12,

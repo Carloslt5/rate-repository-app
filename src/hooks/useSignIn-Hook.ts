@@ -13,14 +13,16 @@ export const useSignIn = () => {
     }
   })
 
-  const { control, handleSubmit } = signInData
+  const { control, handleSubmit, formState: { errors } } = signInData
 
   const onSubmit = (data: SignInData) => {
-    console.log('-----------', data)
+    console.log(JSON.stringify(data, null, 2))
   }
+
   return {
     control,
     handleSubmit,
-    onSubmit
+    onSubmit,
+    errors
   }
 }

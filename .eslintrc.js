@@ -32,6 +32,11 @@ module.exports = {
     '@typescript-eslint/space-before-function-paren': 'off',
     'no-multi-spaces': 'error',
     quotes: [2, 'single'],
-    '@typescript-eslint/explicit-function-return-type': 'off'
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/no-misused-promises': [2, {
+      checksVoidReturn: {
+        attributes: false
+      }
+    }]
   }
 }

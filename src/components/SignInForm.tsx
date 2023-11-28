@@ -1,37 +1,57 @@
 import React from 'react'
 import { View } from 'react-native'
-import { useSignIn } from '../hooks/useSignIn-Hook'
+import { Controller } from 'react-hook-form'
 import { StyledInput } from '../styles/StyledInput'
-import StyledText from '../styles/StyledText'
+
+import { useSignIn } from '../hooks/useSignIn-Hook'
 import { StyledButton } from '../styles/StyledButton'
+import StyledText from '../styles/StyledText'
 
 const SignInForm = () => {
-  const { signInData, handleInputChange, handleSubmit } = useSignIn()
-
-  const { password, email } = signInData
+  const { control, handleSubmit, onSubmit } = useSignIn()
 
   return (
     <View style={{ padding: 10 }}>
-      <StyledInput
-        placeholder="Email"
-        value={email}
-        onChangeText={(text) => { handleInputChange('email', text) }}
+      <Controller
+        control={control}
+        rules={{
+          required: true
+        }}
+        render={({ field: { onChange, onBlur, value } }) => (
+          <StyledInput
+            placeholder="First name"
+            onBlur={onBlur}
+            onChangeText={onChange}
+            value={value}
+          />
+        )}
+        name="email"
       />
-      <StyledInput
-        placeholder="Password"
-        secureTextEntry={true}
-        value={password}
-        onChangeText={(text) => { handleInputChange('password', text) }}
+      <Controller
+        control={control}
+        rules={{
+          required: true
+        }}
+        render={({ field: { onChange, onBlur, value } }) => (
+          <StyledInput
+            placeholder="Password"
+            secureTextEntry={true}
+            onBlur={onBlur}
+            onChangeText={onChange}
+            value={value}
+          />
+        )}
+        name="password"
       />
 
-      <StyledButton onPress={handleSubmit}>
+      <StyledButton onPress={handleSubmit(onSubmit)} >
         <StyledText
           color='textWhite'
           fontWeight='bold'
           align='center'>
           Submit
         </StyledText>
-      </StyledButton>
+      </StyledButton >
     </View >
   )
 }

@@ -1,23 +1,26 @@
-import { useState } from 'react'
+import { useForm } from 'react-hook-form'
+
+interface SignInData {
+  email: string
+  password: string
+}
 
 export const useSignIn = () => {
-  const [signInData, setSignInData] = useState({
-    email: '',
-    password: ''
+  const signInData = useForm({
+    defaultValues: {
+      email: '',
+      password: ''
+    }
   })
 
-  const handleInputChange = (name: string, value: string) => {
-    setSignInData({ ...signInData, [name]: value })
-  }
+  const { control, handleSubmit } = signInData
 
-  const handleSubmit = () => {
-    console.log('Date Sign In', signInData)
-    setSignInData({ email: '', password: '' })
+  const onSubmit = (data: SignInData) => {
+    console.log('-----------', data)
   }
-
   return {
-    signInData,
-    handleInputChange,
-    handleSubmit
+    control,
+    handleSubmit,
+    onSubmit
   }
 }

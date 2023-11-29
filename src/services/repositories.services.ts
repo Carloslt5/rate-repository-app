@@ -6,7 +6,7 @@ class RepositorieServices {
 
   constructor() {
     this.instance = axios.create({
-      baseURL: REACT_API_URL
+      baseURL: `${REACT_API_URL}`
     })
   }
 

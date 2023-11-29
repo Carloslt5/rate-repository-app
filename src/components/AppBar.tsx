@@ -18,8 +18,9 @@ const style = StyleSheet.create({
 export const AppBar = () => {
   return (
     <View style={style.appBar}>
-      <AppTab active to={'/'}>Repositories</AppTab>
+      <AppTab active to={'/'}>Home</AppTab>
       <AppTab active to={'/signin'}>Sign In</AppTab>
+      <AppTab active to={'/repositories'}>Repositories</AppTab>
     </View>
   )
 }

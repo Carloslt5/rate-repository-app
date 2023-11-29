@@ -1,6 +1,7 @@
 import React, { type ReactNode } from 'react'
 import { Text, type StyleProp, StyleSheet, type TextStyle } from 'react-native'
 import theme from './theme'
+import { getBackgroundColorForLanguage } from '../utils/languageBgColor'
 
 interface StyledTextProps {
   children: ReactNode
@@ -10,6 +11,7 @@ interface StyledTextProps {
   fontWeight?: 'normal' | 'bold'
   bgColor?: boolean
   style?: StyleProp<TextStyle>
+  language?: string
 }
 
 const styles = StyleSheet.create({
@@ -45,7 +47,6 @@ const styles = StyleSheet.create({
   },
   language: {
     alignSelf: 'flex-start',
-    backgroundColor: theme.colors.green700,
     borderRadius: 4,
     color: theme.colors.white,
     marginVertical: 4,
@@ -54,7 +55,7 @@ const styles = StyleSheet.create({
   }
 })
 
-const StyledText = ({ children, color, fontSize, fontWeight, bgColor, align, style, ...props }: StyledTextProps) => {
+const StyledText = ({ children, color, fontSize, fontWeight, align, language, style, ...props }: StyledTextProps) => {
   const textStyle = [
     styles.text,
     color === 'textPrimary' && styles.colorPrimary,
@@ -65,7 +66,10 @@ const StyledText = ({ children, color, fontSize, fontWeight, bgColor, align, sty
     fontSize === 'subheading' && styles.fontSizeSubheading,
     fontSize === 'small' && styles.fontSizeSmall,
     fontWeight === 'bold' && styles.fontWeightBold,
-    bgColor === true && styles.language,
+    language !== undefined && {
+      ...styles.language,
+      backgroundColor: getBackgroundColorForLanguage(language)
+    },
     style
   ]
 

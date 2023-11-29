@@ -25,6 +25,14 @@ const theme = {
   fontWeights: {
     normal: '400' as const,
     bold: '700' as const
+  },
+  langugeColors: {
+    JavaScript: '#FFCC33',
+    TypeScript: '#3366FF',
+    Python: '#A0AEC0',
+    PHP: '#7377AD',
+    Ruby: '#AA1302',
+    C: '#01427E'
   }
 }
 

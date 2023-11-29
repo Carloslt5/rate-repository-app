@@ -13,10 +13,14 @@ export const useSignIn = () => {
     }
   })
 
-  const { control, handleSubmit, formState: { errors } } = signInData
+  const { control, handleSubmit, formState: { errors }, reset } = signInData
 
   const onSubmit = (data: SignInData) => {
     console.log(JSON.stringify(data, null, 2))
+    reset({
+      email: '',
+      password: ''
+    })
   }
 
   return {

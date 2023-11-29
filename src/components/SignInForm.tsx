@@ -27,7 +27,7 @@ const SignInForm = () => {
             placeholder="Email"
             onChangeText={onChange}
             value={value}
-            keyboardType="email-address"
+            inputMode="email"
             error={!((errors?.email) == null)}
           />
         )}

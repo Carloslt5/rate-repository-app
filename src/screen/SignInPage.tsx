@@ -1,13 +1,14 @@
 import React from 'react'
-import StyledText from '../styles/StyledText'
 import SignInForm from '../components/SignInForm'
+import ViewContainer from '../styles/ViewContainer'
 
 const SignInPage = () => {
   return (
-    <>
-      <StyledText fontWeight='bold'>The sign in view</StyledText>
+
+    <ViewContainer>
       <SignInForm />
-    </>
+    </ViewContainer>
+
   )
 }
 

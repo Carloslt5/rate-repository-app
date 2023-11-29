@@ -7,7 +7,7 @@ interface StyledTextProps {
   children: ReactNode
   color?: 'textPrimary' | 'textSecondary' | 'textWhite' | 'textError'
   align?: string
-  fontSize?: 'subheading' | 'small'
+  fontSize?: 'subheading' | 'small' | 'h1'
   fontWeight?: 'normal' | 'bold'
   bgColor?: boolean
   style?: StyleProp<TextStyle>
@@ -34,13 +34,17 @@ const styles = StyleSheet.create({
     color: theme.colors.white
   },
   colorError: {
-    color: theme.colors.error
+    color: theme.colors.error,
+    marginBottom: 10
   },
   fontSizeSubheading: {
     fontSize: theme.fontSizes.subheading
   },
   fontSizeSmall: {
     fontSize: theme.fontSizes.small
+  },
+  fontSizeTitle: {
+    fontSize: theme.fontSizes.h1
   },
   fontWeightBold: {
     fontWeight: theme.fontWeights.bold
@@ -65,6 +69,7 @@ const StyledText = ({ children, color, fontSize, fontWeight, align, language, st
     align === 'center' && styles.alignCenter,
     fontSize === 'subheading' && styles.fontSizeSubheading,
     fontSize === 'small' && styles.fontSizeSmall,
+    fontSize === 'h1' && styles.fontSizeTitle,
     fontWeight === 'bold' && styles.fontWeightBold,
     language !== undefined && {
       ...styles.language,

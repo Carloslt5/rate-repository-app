@@ -1,8 +1,9 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { View } from 'react-native'
 import { StyledButton } from '../styles/StyledButton'
 import StyledText from '../styles/StyledText'
 import { useNavigate } from 'react-router-native'
+import ViewContainer from '../styles/ViewContainer'
 
 const HomePage = () => {
   const navigate = useNavigate()
@@ -12,9 +13,15 @@ const HomePage = () => {
   }
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Welcome to Rate Repositories</Text>
-      <StyledButton style={{ width: '50%' }} onPress={handleSignInPress}>
+    <ViewContainer justifyContent='center'>
+      <View>
+        <StyledText fontWeight='bold' align='center' fontSize='h1'>Welcome to </StyledText>
+        <StyledText fontWeight='bold' align='center' fontSize='h1'>Rate Repositories</StyledText>
+      </View>
+      <StyledButton
+        style={{ marginTop: 40 }}
+        onPress={handleSignInPress}
+      >
         <StyledText
           color='textWhite'
           fontWeight='bold'
@@ -23,23 +30,8 @@ const HomePage = () => {
           Sign In
         </StyledText>
       </StyledButton >
-    </View>
+    </ViewContainer>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 10
-  },
-  title: {
-    fontSize: 50,
-    fontWeight: 'bold',
-    marginBottom: 50,
-    textAlign: 'center'
-  }
-})
 
 export default HomePage

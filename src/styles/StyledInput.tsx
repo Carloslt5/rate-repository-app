@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     })
   },
   inputError: {
-    borderColor: 'red'
+    borderColor: theme.colors.error
   }
 })
 

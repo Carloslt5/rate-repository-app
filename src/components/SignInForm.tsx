@@ -2,7 +2,6 @@ import React from 'react'
 import { View } from 'react-native'
 import { Controller } from 'react-hook-form'
 import { StyledInput } from '../styles/StyledInput'
-
 import { useSignIn } from '../hooks/useSignIn-Hook'
 import { StyledButton } from '../styles/StyledButton'
 import StyledText from '../styles/StyledText'

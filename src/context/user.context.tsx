@@ -1,7 +1,6 @@
 import React from 'react'
 import { type ReactNode, createContext, useState } from 'react'
 import { Keyboard } from 'react-native'
-import { useNavigate } from 'react-router-native'
 
 export interface UserData {
   email: string
@@ -18,13 +17,10 @@ export const UserContext = createContext<UserContextType | null>(null)
 
 export function UserProviderWrapper({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<UserData | null>(null)
-  const navigate = useNavigate()
 
   const logout = () => {
-    console.log('-----------')
     setUser(null)
     Keyboard.dismiss()
-    navigate('/')
   }
 
   const value = { user, setUser, logout }

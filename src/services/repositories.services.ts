@@ -1,4 +1,5 @@
 import axios, { type AxiosInstance } from 'axios'
+import repositories from './../data/respositoriesData.json'
 import { REACT_API_URL } from '@env'
 
 class RepositorieServices {
@@ -11,7 +12,11 @@ class RepositorieServices {
   }
 
   async getRepositories() {
-    return await this.instance.get('/repositories')
+    // Simulate the call and return the JSON
+    return await Promise.resolve({
+      data: repositories,
+      status: 200
+    })
   }
 }
 

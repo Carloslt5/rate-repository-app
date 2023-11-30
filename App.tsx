@@ -5,10 +5,10 @@ import { UserProviderWrapper } from './src/context/user.context'
 
 export default function App() {
   return (
-    <UserProviderWrapper>
-      <NativeRouter>
+    <NativeRouter>
+      <UserProviderWrapper>
         <Main />
-      </NativeRouter>
-    </UserProviderWrapper>
+      </UserProviderWrapper>
+    </NativeRouter>
   )
 }

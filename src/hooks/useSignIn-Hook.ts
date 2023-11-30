@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form'
 import { UserContext, type UserContextType, type UserData } from '../context/user.context'
 import { useContext } from 'react'
 import { useNavigate } from 'react-router-native'
+import { Keyboard } from 'react-native'
 
 export const useSignIn = () => {
   const navigate = useNavigate()
@@ -23,6 +24,7 @@ export const useSignIn = () => {
       email: '',
       password: ''
     })
+    Keyboard.dismiss()
     navigate('/')
   }
 

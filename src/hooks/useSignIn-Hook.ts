@@ -20,10 +20,7 @@ export const useSignIn = () => {
   const onSubmit = (data: UserData) => {
     console.log(JSON.stringify(data, null, 2))
     setUser(data)
-    reset({
-      email: '',
-      password: ''
-    })
+    reset()
     Keyboard.dismiss()
     navigate('/')
   }

@@ -8,11 +8,11 @@
     "node_modules"
   ],
   "include": [
-    "./*.tsx",
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    ".eslintrc.js",
+    "./**/*.{ts,tsx}",
+    "./babel.config.js",
+    "./env.d.ts",
     ".env",
-    "./env.d.ts"
+    ".eslintrc.js",
+    "app/**/*.{ts,tsx}"
   ]
 }

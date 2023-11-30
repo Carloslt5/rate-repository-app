@@ -1,5 +1,5 @@
 import axios, { type AxiosInstance } from 'axios'
-import repositories from './../data/respositoriesData.json'
+import repositories from '../data/respositoriesData.json'
 import { REACT_API_URL } from '@env'
 
 class RepositorieServices {

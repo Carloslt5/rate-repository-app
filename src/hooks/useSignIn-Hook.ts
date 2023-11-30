@@ -1,11 +1,11 @@
 import { useForm } from 'react-hook-form'
-
-interface SignInData {
-  email: string
-  password: string
-}
+import { UserContext, type UserContextType, type UserData } from '../context/user.context'
+import { useContext } from 'react'
+import { useNavigate } from 'react-router-native'
 
 export const useSignIn = () => {
+  const navigate = useNavigate()
+
   const signInData = useForm({
     defaultValues: {
       email: '',
@@ -14,13 +14,16 @@ export const useSignIn = () => {
   })
 
   const { control, handleSubmit, formState: { errors }, reset } = signInData
+  const { setUser } = useContext(UserContext) as UserContextType
 
-  const onSubmit = (data: SignInData) => {
+  const onSubmit = (data: UserData) => {
     console.log(JSON.stringify(data, null, 2))
+    setUser(data)
     reset({
       email: '',
       password: ''
     })
+    navigate('/')
   }
 
   return {

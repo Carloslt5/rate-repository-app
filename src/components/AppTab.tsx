@@ -13,7 +13,7 @@ const style = StyleSheet.create({
   }
 })
 
-const AppTab = ({ children, to }: any) => {
+const AppTab = ({ children, to, onPress }: any) => {
   const { pathname } = useLocation()
   const active = pathname === to
 
@@ -23,7 +23,7 @@ const AppTab = ({ children, to }: any) => {
   ]
 
   return (
-    <Link to={to} underlayColor={'transparent'}>
+    <Link onPress={onPress} to={to} underlayColor={'transparent'}>
       <StyledText fontWeight='bold' style={textStyle}>
         {children}
       </StyledText>

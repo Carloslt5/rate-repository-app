@@ -1,18 +1,18 @@
-import React, { type ReactNode } from 'react'
-import { Pressable, type StyleProp, StyleSheet, type PressableProps, type ViewStyle, Platform } from 'react-native'
+import React, { forwardRef, type Ref, type ReactNode } from 'react'
+import { Platform, Pressable, type PressableProps, StyleSheet, type StyleProp } from 'react-native'
 import theme from './theme'
 
 interface StyledButtonProps extends PressableProps {
   children: ReactNode
-  style?: StyleProp<ViewStyle>
+  style?: StyleProp<PressableProps>
 }
 
 const styles = StyleSheet.create({
   button: {
     backgroundColor: theme.colors.green500,
     borderRadius: 8,
-    padding: 10,
     width: '100%',
+    padding: 10,
     ...Platform.select({
       web: {
         maxWidth: 500
@@ -21,11 +21,8 @@ const styles = StyleSheet.create({
   }
 })
 
-export const StyledButton = ({ children, style, ...props }: StyledButtonProps) => {
-  const buttonStyle = [
-    styles.button,
-    style
-  ]
+const StyledButton = ({ style, children, ...props }: StyledButtonProps, ref: Ref<typeof Pressable>) => {
+  const buttonStyle = [styles.button, style]
 
   return (
     <Pressable style={buttonStyle} {...props}>
@@ -33,3 +30,5 @@ export const StyledButton = ({ children, style, ...props }: StyledButtonProps) =
     </Pressable>
   )
 }
+
+export default forwardRef(StyledButton)

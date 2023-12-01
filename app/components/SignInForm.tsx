@@ -3,12 +3,16 @@ import { View } from 'react-native'
 import { Controller } from 'react-hook-form'
 import { StyledInput } from '../styles/StyledInput'
 import { useSignIn } from '../hooks/useSignIn-Hook'
-import { StyledButton } from '../styles/StyledButton'
 import StyledText from '../styles/StyledText'
 import StyledForm from '../styles/StyledForm'
+import StyledButton from '../styles/StyledButton'
 
 const SignInForm = () => {
-  const { control, handleSubmit, onSubmit, errors } = useSignIn()
+  const {
+    control,
+    //  handleSubmit, onSubmit,
+    errors
+  } = useSignIn()
 
   return (
     <StyledForm>
@@ -77,7 +81,7 @@ const SignInForm = () => {
           </StyledText>
         }
       </View>
-      <StyledButton onPress={handleSubmit(onSubmit)} >
+      {/* <StyledButton>
         <StyledText
           color='textWhite'
           fontWeight='bold'
@@ -85,7 +89,16 @@ const SignInForm = () => {
         >
           Submit
         </StyledText>
-      </StyledButton >
+      </StyledButton > */}
+      <StyledButton >
+        <StyledText
+          color='textWhite'
+          fontWeight='bold'
+          align='center'
+        >
+          Submit
+        </StyledText>
+      </StyledButton>
     </StyledForm >
   )
 }

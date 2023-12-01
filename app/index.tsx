@@ -1,16 +1,8 @@
 import React from 'react'
-import { NativeRouter } from 'react-router-native'
-import { UserProviderWrapper } from './context/user.context'
-import { Main } from './components/Main'
+import { Redirect } from 'expo-router'
 
-const Page = () => {
-  return (
-    <NativeRouter>
-      <UserProviderWrapper>
-        <Main />
-      </UserProviderWrapper>
-    </NativeRouter>
-  )
+const StartPage = () => {
+  return <Redirect href="/(screen)/home" />
 }
 
-export default Page
+export default StartPage

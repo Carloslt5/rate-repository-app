@@ -1,9 +1,9 @@
 import React from 'react'
-import { Main } from './app/components/Main'
 import { NativeRouter } from 'react-router-native'
-import { UserProviderWrapper } from './app/context/user.context'
+import { UserProviderWrapper } from './context/user.context'
+import { Main } from './components/Main'
 
-export default function App() {
+const Page = () => {
   return (
     <NativeRouter>
       <UserProviderWrapper>
@@ -12,3 +12,5 @@ export default function App() {
     </NativeRouter>
   )
 }
+
+export default Page

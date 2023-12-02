@@ -1,9 +1,9 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import Constants from 'expo-constants'
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 import theme from '../styles/theme'
-import AppTab from './AppTab'
-import { UserContext, type UserContextType } from '../context/user.context'
+// import AppTab from './AppTab'
+// import { UserContext, type UserContextType } from '../context/user.context'
 
 const style = StyleSheet.create({
   appBar: {
@@ -17,19 +17,20 @@ const style = StyleSheet.create({
 })
 
 export const AppBar = () => {
-  const { user, logout } = useContext(UserContext) as UserContextType
+  // const { user, logout } = useContext(UserContext) as UserContextType
 
   return (
     <View style={style.appBar}>
-      <AppTab active to={'/'}>Home</AppTab>
-      {
+      <Text>appbar</Text>
+      {/* <AppTab active to={'/'}>Home</AppTab> */}
+      {/* {
         user !== null
           ? <>
             <AppTab to={'/repositories'}>Repositories</AppTab>
             <AppTab onPress={logout}>Log out</AppTab>
           </>
           : <AppTab to={'/signin'}>Sign In</AppTab>
-      }
+      } */}
     </View>
   )
 }

@@ -13,14 +13,14 @@ const HomePage = () => {
         <StyledText fontWeight='bold' align='center' fontSize='h1'>Rate Repositories</StyledText>
       </View>
 
-      <Link href={'/(screen)/signin'} asChild>
+      <Link href={'(screens)/signin'} asChild>
         <StyledButton>
           <StyledText color='textPrimary' fontWeight='bold' align='center'>
             Sign Up
           </StyledText>
         </StyledButton>
       </Link>
-      <Link href={'/(screen)/repositories'} asChild>
+      <Link href={'(screens)/repositories'} asChild>
         <StyledButton>
           <StyledText color='textPrimary' fontWeight='bold' align='center'>
             ver Repositorios

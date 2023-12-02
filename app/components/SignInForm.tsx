@@ -10,7 +10,8 @@ import StyledButton from '../styles/StyledButton'
 const SignInForm = () => {
   const {
     control,
-    //  handleSubmit, onSubmit,
+    handleSubmit,
+    onSubmit,
     errors
   } = useSignIn()
 
@@ -81,16 +82,8 @@ const SignInForm = () => {
           </StyledText>
         }
       </View>
-      {/* <StyledButton>
-        <StyledText
-          color='textWhite'
-          fontWeight='bold'
-          align='center'
-        >
-          Submit
-        </StyledText>
-      </StyledButton > */}
-      <StyledButton >
+
+      <StyledButton onPress={handleSubmit(onSubmit)}>
         <StyledText
           color='textWhite'
           fontWeight='bold'
@@ -99,6 +92,7 @@ const SignInForm = () => {
           Submit
         </StyledText>
       </StyledButton>
+
     </StyledForm >
   )
 }

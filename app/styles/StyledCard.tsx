@@ -1,5 +1,5 @@
 import React, { type ReactNode } from 'react'
-import { type StyleProp, StyleSheet, type TextStyle, View } from 'react-native'
+import { type StyleProp, StyleSheet, type TextStyle, View, Platform } from 'react-native'
 import theme from './theme'
 
 interface StyledCardProps {
@@ -9,6 +9,7 @@ interface StyledCardProps {
   style?: StyleProp<TextStyle>
 
 }
+
 const styles = StyleSheet.create({
   containerRow: {
     display: 'flex',
@@ -20,10 +21,15 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.green300,
     borderRadius: 8,
     padding: 10,
-    width: '80%',
-    maxWidth: 700,
-    marginHorizontal: 'auto',
-    marginVertical: 6
+    marginVertical: 6,
+    marginHorizontal: 10,
+    ...Platform.select({
+      web: {
+        marginHorizontal: 'auto',
+        width: '80%',
+        maxWidth: 700
+      }
+    })
   }
 })
 

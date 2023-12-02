@@ -2,7 +2,7 @@ import React from 'react'
 import ViewContainer from '../styles/ViewContainer'
 import SignInForm from '../components/SignInForm'
 
-const SignUpPage = () => {
+const SignInPage = () => {
   return (
     <ViewContainer>
       <SignInForm />
@@ -10,4 +10,4 @@ const SignUpPage = () => {
   )
 }
 
-export default SignUpPage
+export default SignInPage

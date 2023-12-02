@@ -13,18 +13,17 @@ const HomePage = () => {
         <StyledText fontWeight='bold' align='center' fontSize='h1'>Rate Repositories</StyledText>
       </View>
 
-      <Link href={'/(screen)/login'} asChild>
-        <StyledButton>
-          <StyledText color='textPrimary' fontWeight='bold' align='center'>
-            Log In
-          </StyledText>
-        </StyledButton>
-      </Link>
-
-      <Link href={'/(screen)/signup'} asChild>
+      <Link href={'/(screen)/signin'} asChild>
         <StyledButton>
           <StyledText color='textPrimary' fontWeight='bold' align='center'>
             Sign Up
+          </StyledText>
+        </StyledButton>
+      </Link>
+      <Link href={'/(screen)/repositories'} asChild>
+        <StyledButton>
+          <StyledText color='textPrimary' fontWeight='bold' align='center'>
+            ver Repositorios
           </StyledText>
         </StyledButton>
       </Link>

@@ -19,9 +19,11 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: theme.colors.green300,
     borderRadius: 8,
-    marginHorizontal: 10,
-    marginVertical: 5,
-    padding: 10
+    padding: 10,
+    width: '80%',
+    maxWidth: 700,
+    marginHorizontal: 'auto',
+    marginVertical: 6
   }
 })
 

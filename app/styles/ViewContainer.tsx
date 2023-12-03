@@ -3,7 +3,7 @@ import { type StyleProp, StyleSheet, View, type ViewProps, Platform } from 'reac
 
 interface StyledViewProps extends ViewProps {
   children: ReactNode
-  justifyContent?: 'center'
+  justifyContent?: 'center' | 'start'
   style?: StyleProp<ViewProps>
 }
 
@@ -21,15 +21,19 @@ const styles = StyleSheet.create({
       }
     })
   },
-  content: {
+  contentCenter: {
     justifyContent: 'center'
+  },
+  contentStart: {
+    justifyContent: 'flex-start'
   }
 })
 
 const ViewContainer = ({ children, justifyContent, style, ...props }: StyledViewProps) => {
   const viewStyle = [
     styles.container,
-    justifyContent === 'center' && styles.content,
+    justifyContent === 'center' && styles.contentCenter,
+    justifyContent === 'start' && styles.contentStart,
     style
   ]
 

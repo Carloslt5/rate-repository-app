@@ -1,6 +1,6 @@
 import axios, { type AxiosResponse, type AxiosInstance } from 'axios'
 import { GITHUB_API_URL } from '@env'
-import { type UserGithub } from '../types/userGithub.type'
+import { type UserGithubData } from '../types/userGithubData.type'
 
 class SearchUserServices {
   api: AxiosInstance
@@ -11,7 +11,7 @@ class SearchUserServices {
     })
   }
 
-  async getUser(userName: string): Promise<AxiosResponse<UserGithub>> {
+  async getUser(userName: string): Promise<AxiosResponse<UserGithubData>> {
     return await this.api.get(`/users/${userName}`)
   }
 }

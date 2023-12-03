@@ -8,7 +8,7 @@ import StyledButton from '../styles/StyledButton'
 const HomePage = () => {
   return (
     <ViewContainer justifyContent='center'>
-      <View>
+      <View style={{ marginBottom: 20 }}>
         <StyledText fontWeight='bold' align='center' fontSize='h1'>Welcome to </StyledText>
         <StyledText fontWeight='bold' align='center' fontSize='h1'>Rate Repositories</StyledText>
       </View>
@@ -17,13 +17,6 @@ const HomePage = () => {
         <StyledButton>
           <StyledText color='textPrimary' fontWeight='bold' align='center'>
             Sign Up
-          </StyledText>
-        </StyledButton>
-      </Link>
-      <Link href={'(screens)/repositories'} asChild>
-        <StyledButton>
-          <StyledText color='textPrimary' fontWeight='bold' align='center'>
-            ver Repositorios
           </StyledText>
         </StyledButton>
       </Link>

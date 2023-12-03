@@ -32,7 +32,8 @@ const Navigation = () => {
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarStyle: styles.tab
+        tabBarStyle: styles.tab,
+        headerShown: Platform.OS !== 'web'
       }}
     >
       <Tab.Screen

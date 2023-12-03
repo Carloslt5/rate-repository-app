@@ -1,13 +1,9 @@
 import React from 'react'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { Platform, StyleSheet } from 'react-native'
-import HomePage from '../(screens)/home'
-import RepositoriesPage from '../(screens)/repositories'
-import SignInPage from '../(screens)/signin'
+import { Tabs } from 'expo-router'
 import theme from '../styles/theme'
-import SearchPage from '../(screens)/search'
 
 const styles = StyleSheet.create({
   tab: {
@@ -29,11 +25,9 @@ const styles = StyleSheet.create({
   }
 })
 
-const Tab = createBottomTabNavigator()
-
 const Navigation = () => {
   return (
-    <Tab.Navigator
+    <Tabs
       screenOptions={{
         headerShown: Platform.OS !== 'web',
         tabBarStyle: styles.tab,
@@ -41,9 +35,8 @@ const Navigation = () => {
         tabBarInactiveTintColor: theme.colors.green500
       }}
     >
-      <Tab.Screen
+      <Tabs.Screen
         name="Home"
-        component={HomePage}
         options={{
           tabBarLabel: 'Home',
           tabBarIcon: ({ color }) => (
@@ -51,9 +44,8 @@ const Navigation = () => {
           )
         }}
       />
-      <Tab.Screen
+      <Tabs.Screen
         name="Search"
-        component={SearchPage}
         options={{
           tabBarLabel: 'Search',
           tabBarIcon: ({ color }) => (
@@ -61,9 +53,8 @@ const Navigation = () => {
           )
         }}
       />
-      <Tab.Screen
+      <Tabs.Screen
         name="Respositories"
-        component={RepositoriesPage}
         options={{
           tabBarLabel: 'Respositories',
           tabBarIcon: ({ color }) => (
@@ -71,9 +62,8 @@ const Navigation = () => {
           )
         }}
       />
-      <Tab.Screen
+      <Tabs.Screen
         name="Signin"
-        component={SignInPage}
         options={{
           tabBarLabel: 'Signin',
           tabBarIcon: ({ color }) => (
@@ -82,7 +72,7 @@ const Navigation = () => {
         }}
       />
 
-    </Tab.Navigator>
+    </Tabs>
   )
 }
 

@@ -13,7 +13,7 @@ const HomePage = () => {
         <StyledText fontWeight='bold' align='center' fontSize='h1'>Rate Repositories</StyledText>
       </View>
 
-      <Link href={'(screens)/signin'} asChild>
+      <Link href={'/signin'} asChild>
         <StyledButton>
           <StyledText color='textPrimary' fontWeight='bold' align='center'>
             Sign Up

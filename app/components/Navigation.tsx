@@ -1,9 +1,11 @@
 import React from 'react'
-import AntDesign from 'react-native-vector-icons/AntDesign'
-import Ionicons from 'react-native-vector-icons/Ionicons'
 import { Platform, StyleSheet } from 'react-native'
-import { Tabs } from 'expo-router'
 import theme from '../styles/theme'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import Ionicons from 'react-native-vector-icons/Ionicons'
+import { MenuTabs } from '../const/Menu-const'
+
+const Tab = createBottomTabNavigator()
 
 const styles = StyleSheet.create({
   tab: {
@@ -27,7 +29,7 @@ const styles = StyleSheet.create({
 
 const Navigation = () => {
   return (
-    <Tabs
+    <Tab.Navigator
       screenOptions={{
         headerShown: Platform.OS !== 'web',
         tabBarStyle: styles.tab,
@@ -35,44 +37,23 @@ const Navigation = () => {
         tabBarInactiveTintColor: theme.colors.green500
       }}
     >
-      <Tabs.Screen
-        name="Home"
-        options={{
-          tabBarLabel: 'Home',
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="home" size={20} color={color} />
-          )
-        }}
-      />
-      <Tabs.Screen
-        name="Search"
-        options={{
-          tabBarLabel: 'Search',
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="search-circle" size={20} color={color} />
-          )
-        }}
-      />
-      <Tabs.Screen
-        name="Respositories"
-        options={{
-          tabBarLabel: 'Respositories',
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="list-circle" size={20} color={color} />
-          )
-        }}
-      />
-      <Tabs.Screen
-        name="Signin"
-        options={{
-          tabBarLabel: 'Signin',
-          tabBarIcon: ({ color }) => (
-            <AntDesign name="login" size={20} color={color} />
-          )
-        }}
-      />
-
-    </Tabs>
+      {MenuTabs.map((menu, index) => {
+        return (
+          <Tab.Screen
+            key={index}
+            name={menu.name}
+            component={menu.component}
+            options={{
+              headerShown: false,
+              tabBarLabel: menu.label,
+              tabBarIcon: ({ color }) => (
+                <Ionicons name={menu.icon} size={20} color={color} />
+              )
+            }}
+          />
+        )
+      })}
+    </Tab.Navigator>
   )
 }
 

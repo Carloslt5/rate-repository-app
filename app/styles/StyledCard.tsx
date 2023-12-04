@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
     columnGap: 6
   },
   border: {
+    width: '100%',
     borderWidth: 1,
     borderColor: theme.colors.green300,
     borderRadius: 8,

@@ -1,12 +1,12 @@
 import React from 'react'
-import Navigation from '../components/Navigation'
+import AppRoutes from '../routes/AppRoutes'
 import { Provider } from 'react-redux'
 import store from '../store'
 
 const ScreenLayout = () => {
   return (
     <Provider store={store}>
-      <Navigation />
+      <AppRoutes />
     </Provider>
   )
 }

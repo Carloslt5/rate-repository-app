@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   }
 })
 
-const Navigation = () => {
+const AppRoutes = () => {
   return (
     <Tab.Navigator
       screenOptions={{
@@ -57,4 +57,4 @@ const Navigation = () => {
   )
 }
 
-export default Navigation
+export default AppRoutes

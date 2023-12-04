@@ -8,7 +8,7 @@ const SearchBar = () => {
   const {
     searchText,
     setSearchText,
-    handleSearch
+    handleSubmit
   } = useSearchUser()
 
   return (
@@ -21,7 +21,7 @@ const SearchBar = () => {
         />
       </View>
       <View>
-        <Pressable onPress={handleSearch} style={{ padding: 10 }}>
+        <Pressable onPress={handleSubmit} style={{ padding: 10 }}>
           <Ionicons name="search" size={30} />
         </Pressable>
       </View>

@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import amountSlice from '../feature/count/reducer'
+import searchDataSlice from '../feature/SearchData/reducer'
 
 const store = configureStore({
   reducer: {
-    count: amountSlice
+    count: amountSlice,
+    searchData: searchDataSlice
   }
 })
 export default store

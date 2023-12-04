@@ -1,16 +1,19 @@
 import { useState } from 'react'
 import searchUserServices from '../services/searchUser.services'
+import { searchUserSuccess } from '../feature/SearchData/reducer'
+import { useDispatch } from 'react-redux'
 
 export const useSearchUser = () => {
   const [searchText, setSearchText] = useState('')
+  const dispatch = useDispatch()
 
-  const handleSearch = async () => {
+  const handleSubmit = async () => {
     const { data } = await searchUserServices.getUser(searchText)
-    console.log(JSON.stringify(data, null, 2))
+    dispatch(searchUserSuccess(data))
   }
   return {
     searchText,
     setSearchText,
-    handleSearch
+    handleSubmit
   }
 }

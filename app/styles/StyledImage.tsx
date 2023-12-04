@@ -8,9 +8,9 @@ interface StyledImageProps {
 
 const styles = StyleSheet.create({
   image: {
-    width: 48,
-    height: 48,
-    borderRadius: 4
+    width: 100,
+    height: '100%',
+    borderRadius: 6
   }
 })
 

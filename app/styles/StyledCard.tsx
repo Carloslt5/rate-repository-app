@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   containerRow: {
     display: 'flex',
     flexDirection: 'row',
-    columnGap: 6
+    gap: 10
   },
   border: {
     width: '100%',

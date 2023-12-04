@@ -1,23 +1,25 @@
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 import React from 'react'
 import { type UserGithubData } from '../types/userGithubData.type'
 import StyledText from '../styles/StyledText'
+import ViewContainer from '../styles/ViewContainer'
 
-const UserGithubBody = ({
-  public_repos: publicRepos,
-  bio
-}: UserGithubData) => {
+const UserGithubBody = ({ public_repos: publicRepos, bio, name }: UserGithubData) => {
   return (
-    <View style={{ gap: 10 }}>
+    <ViewContainer >
+      <View>
+        <StyledText fontWeight='bold' >Full Name: </StyledText>
+        <StyledText >{name ?? 'No disponible'}</StyledText>
+      </View>
       <View>
         <StyledText fontWeight='bold' >Biography: </StyledText>
-        <Text >{bio !== '' ? bio : 'No disponible'}</Text>
+        <StyledText >{bio ?? 'No disponible'}</StyledText>
       </View>
       <View>
         <StyledText fontWeight='bold' >Public Repositories: </StyledText>
-        <Text >{publicRepos}</Text>
+        <StyledText >{publicRepos}</StyledText>
       </View>
-    </View>
+    </ViewContainer>
   )
 }
 

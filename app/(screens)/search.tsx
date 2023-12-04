@@ -1,14 +1,14 @@
 import React from 'react'
 import SearchBar from '../components/SearchBar'
-import ViewContainer from '../styles/ViewContainer'
 import UserRepository from '../components/UserRepository'
+import MainContainer from '../styles/MainContainer'
 
 const SearchPage = () => {
   return (
-    <ViewContainer justifyContent='start'>
+    <MainContainer justifyContent='start'>
       <SearchBar />
       <UserRepository />
-    </ViewContainer>
+    </MainContainer>
   )
 }
 

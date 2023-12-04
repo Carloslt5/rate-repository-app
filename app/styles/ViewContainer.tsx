@@ -1,39 +1,32 @@
 import React, { type ReactNode } from 'react'
-import { type StyleProp, StyleSheet, View, type ViewProps, Platform } from 'react-native'
+import { type StyleProp, StyleSheet, View, type ViewProps } from 'react-native'
 
 interface StyledViewProps extends ViewProps {
   children: ReactNode
   justifyContent?: 'center' | 'start'
+  flexDirection?: 'row'
   style?: StyleProp<ViewProps>
 }
 
 const styles = StyleSheet.create({
-  container: {
-    height: '100%',
-    alignItems: 'center',
-    padding: 10,
-    ...Platform.select({
-      web: {
-        justifyContent: 'center',
-        width: '90%',
-        maxWidth: 1200,
-        marginHorizontal: 'auto'
-      }
-    })
+  flexContainer: {
+    width: '100%',
+    gap: 10
   },
   contentCenter: {
     justifyContent: 'center'
   },
-  contentStart: {
-    justifyContent: 'flex-start'
+  flexDirectionRow: {
+    flexDirection: 'row',
+    alignItems: 'center'
   }
 })
 
-const ViewContainer = ({ children, justifyContent, style, ...props }: StyledViewProps) => {
+const ViewContainer = ({ children, flexDirection, justifyContent, style, ...props }: StyledViewProps) => {
   const viewStyle = [
-    styles.container,
+    styles.flexContainer,
+    flexDirection === 'row' && styles.flexDirectionRow,
     justifyContent === 'center' && styles.contentCenter,
-    justifyContent === 'start' && styles.contentStart,
     style
   ]
 

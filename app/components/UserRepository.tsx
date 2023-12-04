@@ -1,20 +1,20 @@
 import React from 'react'
-import { Text, View } from 'react-native'
 import { useSelector } from 'react-redux'
 import { type RootState } from '../store'
 import UserGithubCard from './UserGithubCard'
+import ViewContainer from '../styles/ViewContainer'
 
 const UserRepository = () => {
   const { searchData } = useSelector((state: RootState) => state.searchData)
 
   return (
-    <View style={{ width: '100%' }}>
+    <ViewContainer>
       {
         searchData === null
-          ? <Text>No se encontraron datos</Text>
+          ? null
           : <UserGithubCard searchData={searchData} />
       }
-    </View>
+    </ViewContainer>
   )
 }
 

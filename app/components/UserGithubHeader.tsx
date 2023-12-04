@@ -1,55 +1,42 @@
-import { View, Text, Image, StyleSheet } from 'react-native'
+import { View, Text } from 'react-native'
 import React from 'react'
 import { type UserGithubData } from '../types/userGithubData.type'
 import StyledText from '../styles/StyledText'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import StyledImage from '../styles/StyledImage'
+import ViewContainer from '../styles/ViewContainer'
 
-const styles = StyleSheet.create({
-  avatar: {
-    width: 100,
-    height: '100%',
-    borderRadius: 6,
-    marginBottom: 10
-  },
-  headerContainer: {
-    flexDirection: 'row',
-    gap: 10
-  }
-})
-
-const UserGithubHeader = ({
-  avatar_url: avatarUrl,
-  login,
-  blog,
-  html_url: htmlUrl,
-  location
-}: UserGithubData) => {
+const UserGithubHeader = ({ avatar_url: avatarUrl, login, blog, html_url: htmlUrl, location }: UserGithubData) => {
   return (
     <View style={{ marginBottom: 10 }}>
-      <View style={styles.headerContainer}>
-        <View>
-          <Image style={styles.avatar} source={{ uri: avatarUrl }} />
-        </View>
+      <ViewContainer flexDirection='row' >
 
-        <View style={{ flex: 1, justifyContent: 'space-between' }}>
-          <StyledText fontSize='subheading' fontWeight='bold'>{login}</StyledText>
+        <StyledImage source={{ uri: avatarUrl }} />
+
+        <ViewContainer>
+          <StyledText
+            fontSize='subheading'
+            fontWeight='bold'
+          >
+            {login}
+          </StyledText>
           <View >
-            <View style={{ ...styles.headerContainer, alignItems: 'center' }}>
+            <ViewContainer flexDirection='row' >
               <Ionicons name='logo-github' size={20} color={'black'} />
               <Text >{htmlUrl}</Text>
-            </View>
-            <View style={{ ...styles.headerContainer, alignItems: 'center' }}>
+            </ViewContainer>
+            <ViewContainer flexDirection='row' >
               <Ionicons name='earth' size={20} color={'black'} />
               <Text>{blog !== '' ? blog : 'No disponible'}</Text>
-            </View>
-            <View style={{ ...styles.headerContainer, alignItems: 'center' }}>
+            </ViewContainer>
+            <ViewContainer flexDirection='row' >
               <Ionicons name='location-sharp' size={20} color={'black'} />
               <Text>{location !== '' ? location : 'No disponible'}</Text>
-            </View>
+            </ViewContainer>
           </View>
-        </View>
+        </ViewContainer>
 
-      </View>
+      </ViewContainer>
     </View>
   )
 }

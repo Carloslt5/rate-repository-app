@@ -1,19 +1,19 @@
 import React from 'react'
 import { View } from 'react-native'
 import StyledText from '../styles/StyledText'
-import { type Repository } from '../data/Repository.type'
-import StyledCard from '../styles/StyledCard'
-import StyledImage from '../styles/StyledImage'
+// import StyledImage from '../styles/StyledImage'
+import { type RepoData } from '../types/repoData.type'
+import ViewContainer from '../styles/ViewContainer'
 
-const RepositoryItemHeader: React.FC<Repository> = ({ fullName, description, language, ownerAvatarUrl }) => {
+const RepositoryItemHeader = ({ name, description, language }: RepoData) => {
   return (
-    <StyledCard flexDirection='flex-row'>
-      <View>
+    <ViewContainer flexDirection='row'>
+      {/* <View>
         <StyledImage source={{ uri: ownerAvatarUrl }} />
-      </View>
+      </View> */}
       <View style={{ flex: 1 }}>
         <StyledText fontWeight="bold" color="textSecondary" fontSize='subheading'>
-          {fullName}
+          {name}
         </StyledText >
         <StyledText color='textPrimary'>
           {description}
@@ -22,7 +22,7 @@ const RepositoryItemHeader: React.FC<Repository> = ({ fullName, description, lan
           {language}
         </StyledText >
       </View>
-    </StyledCard >
+    </ViewContainer >
   )
 }
 

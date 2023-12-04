@@ -17,13 +17,12 @@ const styles = StyleSheet.create({
     gap: 10
   },
   border: {
-    width: '100%',
     borderWidth: 1,
     borderColor: theme.colors.green300,
     borderRadius: 8,
     padding: 10,
     marginVertical: 6,
-    marginHorizontal: 10,
+    width: '100%',
     ...Platform.select({
       web: {
         marginHorizontal: 'auto',

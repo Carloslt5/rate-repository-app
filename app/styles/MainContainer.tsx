@@ -11,13 +11,14 @@ const styles = StyleSheet.create({
   container: {
     height: '100%',
     alignItems: 'center',
+    marginHorizontal: 'auto',
     padding: 10,
     ...Platform.select({
       web: {
+        padding: 10,
         justifyContent: 'center',
         width: '90%',
-        maxWidth: 1200,
-        marginHorizontal: 'auto'
+        maxWidth: 1200
       }
     })
   },

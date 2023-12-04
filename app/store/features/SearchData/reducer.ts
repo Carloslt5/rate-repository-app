@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { type UserGithubData } from '../../types/userGithubData.type'
+import { type UserGithubData } from '../../../types/userGithubData.type'
 
 export interface SearchData {
   searchData: UserGithubData | null
@@ -10,7 +10,7 @@ const initialStateData: SearchData = {
 }
 
 export const searchDataSlice = createSlice({
-  name: 'amount',
+  name: 'Search Data',
   initialState: initialStateData,
   reducers: {
     searchUserSuccess: (state, action) => {
@@ -18,5 +18,6 @@ export const searchDataSlice = createSlice({
     }
   }
 })
+
 export const { searchUserSuccess } = searchDataSlice.actions
 export default searchDataSlice.reducer

@@ -1,26 +1,16 @@
 import React from 'react'
-import { FlatList } from 'react-native'
 import { RepositoryItem } from './RepositoryItem'
-import StyledCard from '../styles/StyledCard'
-import Loader from './Loader'
-import { useRepositories } from '../hooks/useRepositories'
+import StyledText from '../styles/StyledText'
+import { type RepoData } from '../types/repoData.type'
 
-export const RepositoryList = () => {
-  const { repositories } = useRepositories()
-
+export const RepositoryList = ({ repositoriesData }: { repositoriesData: RepoData[] }) => {
   return (
     <>
+      <StyledText fontWeight='bold'>Lista repositorios</StyledText>
       {
-        (repositories == null)
-          ? <Loader />
-          : <FlatList
-            data={repositories}
-            renderItem={({ item: repo }) => (
-              <StyledCard>
-                <RepositoryItem {...repo} />
-              </StyledCard>
-            )}
-          />
+        repositoriesData.map(repo => (
+          <RepositoryItem key={repo.id} repoData={repo} />
+        ))
       }
     </>
   )

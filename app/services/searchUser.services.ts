@@ -14,6 +14,10 @@ class SearchUserServices {
   async getUser(userName: string): Promise<AxiosResponse<UserGithubData>> {
     return await this.api.get(`/users/${userName}`)
   }
+
+  async getRepositories(userName: string) {
+    return await this.api.get(`/users/${userName}/repos`)
+  }
 }
 
 const searchUserServices = new SearchUserServices()

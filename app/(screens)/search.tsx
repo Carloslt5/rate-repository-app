@@ -1,14 +1,18 @@
 import React from 'react'
 import SearchBar from '../components/SearchBar'
-import UserRepository from '../components/UserRepository'
+import UserGithubData from '../components/UserGithubData'
 import MainContainer from '../styles/MainContainer'
+import { ScrollView } from 'react-native'
 
 const SearchPage = () => {
   return (
-    <MainContainer justifyContent='start'>
-      <SearchBar />
-      <UserRepository />
-    </MainContainer>
+    <ScrollView>
+      <MainContainer justifyContent='start'>
+        <SearchBar />
+        <UserGithubData />
+      </MainContainer>
+    </ScrollView>
+
   )
 }
 

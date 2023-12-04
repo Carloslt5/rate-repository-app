@@ -8,9 +8,15 @@ export const useSearchUser = () => {
   const dispatch = useDispatch()
 
   const handleSubmit = async () => {
-    const { data } = await searchUserServices.getUser(searchText)
-    dispatch(searchUserSuccess(data))
+    try {
+      const { data } = await searchUserServices.getUser(searchText)
+      dispatch(searchUserSuccess(data))
+      setSearchText('')
+    } catch (error) {
+      console.log(error)
+    }
   }
+
   return {
     searchText,
     setSearchText,

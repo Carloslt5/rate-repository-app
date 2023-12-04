@@ -6,14 +6,13 @@ import UserGithubCard from './UserGithubCard'
 
 const UserRepository = () => {
   const { searchData } = useSelector((state: RootState) => state.searchData)
-  console.log('search data-------------: ', searchData)
 
   return (
-    <View>
+    <View style={{ width: '100%' }}>
       {
         searchData === null
           ? <Text>No se encontraron datos</Text>
-          : <UserGithubCard {...searchData} />
+          : <UserGithubCard searchData={searchData} />
       }
     </View>
   )

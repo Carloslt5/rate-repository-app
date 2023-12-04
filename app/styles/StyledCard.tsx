@@ -26,8 +26,7 @@ const styles = StyleSheet.create({
     ...Platform.select({
       web: {
         marginHorizontal: 'auto',
-        width: '80%',
-        maxWidth: 700
+        maxWidth: 800
       }
     })
   }
@@ -35,8 +34,8 @@ const styles = StyleSheet.create({
 
 const StyledCard = ({ children, flexDirection, border, style, ...props }: StyledCardProps) => {
   const containerStyle = [
+    styles.border,
     flexDirection === 'flex-row' ? styles.containerRow : undefined,
-    border === true && styles.border,
     style
   ]
 

@@ -13,7 +13,6 @@ export const useSignIn = () => {
   const { control, handleSubmit, formState: { errors }, reset } = signInData
 
   const onSubmit = (data: UserData) => {
-    console.log(JSON.stringify(data, null, 2))
     reset()
     Keyboard.dismiss()
   }

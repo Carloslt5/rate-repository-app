@@ -13,11 +13,8 @@ const UserGithubHeader = ({ avatar_url: avatarUrl, login, blog, html_url: htmlUr
 
         <StyledImage source={{ uri: avatarUrl }} />
 
-        <ViewContainer>
-          <StyledText
-            fontSize='subheading'
-            fontWeight='bold'
-          >
+        <ViewContainer style={{ flex: 1 }}>
+          <StyledText fontSize='subheading' fontWeight='bold'>
             {login}
           </StyledText>
           <View >

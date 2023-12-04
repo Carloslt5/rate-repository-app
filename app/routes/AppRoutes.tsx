@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
       web: {
         marginHorizontal: 'auto',
         width: '90%',
-        maxWidth: 780
+        maxWidth: 800
       }
     })
   }

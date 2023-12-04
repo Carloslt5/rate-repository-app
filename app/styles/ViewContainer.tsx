@@ -1,11 +1,11 @@
 import React, { type ReactNode } from 'react'
-import { type StyleProp, StyleSheet, View, type ViewProps } from 'react-native'
+import { type StyleProp, StyleSheet, View, type ViewProps, type ViewStyle } from 'react-native'
 
 interface StyledViewProps extends ViewProps {
   children: ReactNode
   justifyContent?: 'center' | 'start'
   flexDirection?: 'row'
-  style?: StyleProp<ViewProps>
+  style?: StyleProp<ViewStyle>
 }
 
 const styles = StyleSheet.create({

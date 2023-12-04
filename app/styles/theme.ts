@@ -33,7 +33,8 @@ const theme = {
     Python: '#A0AEC0',
     PHP: '#7377AD',
     Ruby: '#AA1302',
-    C: '#01427E'
+    C: '#01427E',
+    Svelte: '#F63C00'
   }
 }
 

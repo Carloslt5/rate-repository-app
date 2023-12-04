@@ -25,8 +25,7 @@ const styles = StyleSheet.create({
     width: '100%',
     ...Platform.select({
       web: {
-        marginHorizontal: 'auto',
-        maxWidth: 800
+        marginHorizontal: 'auto'
       }
     })
   }

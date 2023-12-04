@@ -14,6 +14,8 @@ export const getBackgroundColorForLanguage = (language: string) => {
       return theme.langugeColors.Ruby
     case 'C++':
       return theme.langugeColors.C
+    case 'Svelte':
+      return theme.langugeColors.Svelte
     default:
       return 'gray'
   }

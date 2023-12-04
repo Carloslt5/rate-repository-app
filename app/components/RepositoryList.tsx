@@ -14,11 +14,10 @@ export const RepositoryList = ({ repositoriesData }: { repositoriesData: RepoDat
         Repository List
       </StyledText>
 
-      {
-        repositoriesData.map(repo => (
-          <RepositoryItem key={repo.id} repoData={repo} />
-        ))
-      }
+      {repositoriesData.map((repo) => (
+        <RepositoryItem key={repo.id} repoData={repo} />
+      ))}
+
     </>
   )
 }

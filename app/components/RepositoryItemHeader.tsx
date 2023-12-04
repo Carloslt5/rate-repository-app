@@ -13,7 +13,7 @@ const RepositoryItemHeader = ({ name, description, language }: RepoData) => {
         {description}
       </StyledText >
       <StyledText fontSize='small' language={language}>
-        {language}
+        {language ?? 'Unknown'}
       </StyledText >
     </ViewContainer >
   )

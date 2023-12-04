@@ -13,8 +13,8 @@ export const useSignIn = () => {
   const { control, handleSubmit, formState: { errors }, reset } = signInData
 
   const onSubmit = (data: UserData) => {
-    reset()
     Keyboard.dismiss()
+    reset()
   }
 
   return {

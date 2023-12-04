@@ -1,6 +1,7 @@
 import axios, { type AxiosResponse, type AxiosInstance } from 'axios'
 import { GITHUB_API_URL } from '@env'
 import { type UserGithubData } from '../types/userGithubData.type'
+import { type RepoData } from '../types/repoData.type'
 
 class SearchUserServices {
   api: AxiosInstance
@@ -15,7 +16,7 @@ class SearchUserServices {
     return await this.api.get(`/users/${userName}`)
   }
 
-  async getRepositories(userName: string) {
+  async getRepositories(userName: string): Promise<AxiosResponse<RepoData[]>> {
     return await this.api.get(`/users/${userName}/repos`)
   }
 }

@@ -4,24 +4,21 @@ import { type RootState } from '../store'
 import UserGithubCard from './UserGithubCard'
 import ViewContainer from '../styles/ViewContainer'
 import { RepositoryList } from './RepositoryList'
+import Loader from './Loader'
 
 const UserGithubData = () => {
-  const { searchData } = useSelector((state: RootState) => state.searchData)
+  const { searchData, searchLoading } = useSelector((state: RootState) => state.searchData)
   const { repoData } = useSelector((state: RootState) => state.repoData)
+
+  if (searchData === null && repoData === null) {
+    return null
+  }
 
   return (
     <ViewContainer>
-      {
-        searchData === null
-          ? null
-          : <UserGithubCard searchData={searchData} />
-      }
-
-      {
-        repoData === null
-          ? null
-          : <RepositoryList repositoriesData={repoData} />
-      }
+      {searchLoading && <Loader />}
+      {(searchData !== null) && <UserGithubCard searchData={searchData} />}
+      {(repoData !== null) && <RepositoryList repositoriesData={repoData} />}
     </ViewContainer>
   )
 }

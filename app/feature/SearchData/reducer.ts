@@ -1,6 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { type UserGithubData } from '../../types/userGithubData.type'
 
-const initialStateData = {
+interface InitialStateData {
+  searchData: UserGithubData | null
+}
+
+const initialStateData: InitialStateData = {
   searchData: null
 }
 

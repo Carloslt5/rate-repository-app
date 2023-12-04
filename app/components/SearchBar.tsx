@@ -3,6 +3,7 @@ import { StyledInput } from '../styles/StyledInput'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { View, Pressable } from 'react-native'
 import { useSearchUser } from '../hooks/useSearchUser-Hook'
+import ViewContainer from '../styles/ViewContainer'
 
 const SearchBar = () => {
   const {
@@ -12,7 +13,7 @@ const SearchBar = () => {
   } = useSearchUser()
 
   return (
-    <View style={{ flexDirection: 'row', alignItems: 'center', width: '100%' }}>
+    <ViewContainer flexDirection='row'>
       <View style={{ flex: 1 }}>
         <StyledInput
           onChangeText={setSearchText}
@@ -21,11 +22,14 @@ const SearchBar = () => {
         />
       </View>
       <View>
-        <Pressable onPress={handleSubmit} style={{ padding: 10 }}>
+        <Pressable
+          onPress={handleSubmit}
+          style={{ padding: 10 }}
+        >
           <Ionicons name="search" size={30} />
         </Pressable>
       </View>
-    </View>
+    </ViewContainer>
 
   )
 }

@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import searchUserServices from '../services/searchUser.services'
-import { searchUserRequest, searchUserSuccess } from '../store/features/SearchData/reducer'
+import { searchUserRequest, searchUserRequestError, searchUserSuccess } from '../store/features/SearchData/reducer'
 import { useDispatch } from 'react-redux'
 import { repoDataSuccess } from '../store/features/RepoData/reducer'
+import { AxiosError } from 'axios'
 
 export const useSearchUser = () => {
   const [searchText, setSearchText] = useState('')
@@ -17,7 +18,11 @@ export const useSearchUser = () => {
       dispatch(repoDataSuccess(repoData))
       setSearchText('')
     } catch (error) {
-      console.log(error)
+      if (error instanceof AxiosError) {
+        dispatch(searchUserRequestError())
+        setSearchText('')
+        alert('User not found')
+      }
     }
   }
 

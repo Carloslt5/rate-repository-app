@@ -18,6 +18,9 @@ export const searchDataSlice = createSlice({
     searchUserRequest: (state) => {
       state.searchLoading = true
     },
+    searchUserRequestError: (state) => {
+      state.searchLoading = false
+    },
     searchUserSuccess: (state, action) => {
       state.searchData = action.payload
       state.searchLoading = false
@@ -25,5 +28,5 @@ export const searchDataSlice = createSlice({
   }
 })
 
-export const { searchUserRequest, searchUserSuccess } = searchDataSlice.actions
+export const { searchUserRequest, searchUserSuccess, searchUserRequestError } = searchDataSlice.actions
 export default searchDataSlice.reducer

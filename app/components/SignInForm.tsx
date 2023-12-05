@@ -19,9 +19,10 @@ const SignInForm = () => {
     <StyledForm>
       <StyledText
         fontWeight='bold'
-        style={{ fontSize: 40, marginBottom: 20 }}
+        align='center'
+        style={{ fontSize: 40 }}
       >
-        Sign In ⭐️
+        Sign In
       </StyledText>
       <View >
         <Controller

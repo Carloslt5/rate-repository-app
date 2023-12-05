@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native'
+import { View, Pressable, Linking } from 'react-native'
 import React from 'react'
 import { type UserGithubData } from '../types/userGithubData.type'
 import StyledText from '../styles/StyledText'
@@ -20,15 +20,19 @@ const UserGithubHeader = ({ avatar_url: avatarUrl, login, blog, html_url: htmlUr
           <View >
             <ViewContainer flexDirection='row' >
               <Ionicons name='logo-github' size={20} color={'black'} />
-              <Text >{htmlUrl}</Text>
+              <Pressable onPress={async () => await Linking.openURL(htmlUrl)}>
+                <StyledText textDecoration='underline'>{htmlUrl}</StyledText>
+              </Pressable>
             </ViewContainer>
             <ViewContainer flexDirection='row' >
               <Ionicons name='earth' size={20} color={'black'} />
-              <Text>{blog !== '' ? blog : 'No disponible'}</Text>
+              <Pressable onPress={async () => await Linking.openURL(blog)}>
+                <StyledText textDecoration='underline'>{blog !== '' ? blog : 'No disponible'}</StyledText>
+              </Pressable>
             </ViewContainer>
             <ViewContainer flexDirection='row' >
               <Ionicons name='location-sharp' size={20} color={'black'} />
-              <Text>{location !== '' ? location : 'No disponible'}</Text>
+              <StyledText>{location !== '' ? location : 'No disponible'}</StyledText>
             </ViewContainer>
           </View>
         </ViewContainer>

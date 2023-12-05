@@ -12,6 +12,7 @@ interface StyledTextProps {
   bgColor?: boolean
   style?: StyleProp<TextStyle>
   language?: string
+  textDecoration?: 'underline'
 }
 
 const styles = StyleSheet.create({
@@ -56,10 +57,13 @@ const styles = StyleSheet.create({
     marginVertical: 4,
     padding: 4,
     paddingHorizontal: 8
+  },
+  textDecoration: {
+    textDecorationLine: 'underline'
   }
 })
 
-const StyledText = ({ children, color, fontSize, fontWeight, align, language, style, ...props }: StyledTextProps) => {
+const StyledText = ({ children, color, fontSize, fontWeight, align, language, textDecoration, style, ...props }: StyledTextProps) => {
   const textStyle = [
     styles.text,
     color === 'textPrimary' && styles.colorPrimary,
@@ -71,6 +75,7 @@ const StyledText = ({ children, color, fontSize, fontWeight, align, language, st
     fontSize === 'small' && styles.fontSizeSmall,
     fontSize === 'h1' && styles.fontSizeTitle,
     fontWeight === 'bold' && styles.fontWeightBold,
+    textDecoration === 'underline' && styles.textDecoration,
     language !== undefined && {
       ...styles.language,
       backgroundColor: getBackgroundColorForLanguage(language)

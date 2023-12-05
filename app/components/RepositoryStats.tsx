@@ -4,7 +4,7 @@ import { parseThousands } from '../utils/parseThousands'
 import { type RepoData } from '../types/repoData.type'
 import ViewContainer from '../styles/ViewContainer'
 import StyledButton from '../styles/StyledButton'
-import { Platform } from 'react-native'
+import { Platform, Linking } from 'react-native'
 
 export const RepositoryStats = ({ forks_count: forksCount, html_url: htmlURL }: RepoData) => {
   return (
@@ -14,7 +14,7 @@ export const RepositoryStats = ({ forks_count: forksCount, html_url: htmlURL }: 
         <StyledText >{parseThousands(forksCount)}</StyledText >
       </ViewContainer>
 
-      <StyledButton >
+      <StyledButton onPress={async () => await Linking.openURL(htmlURL)}>
         <StyledText color='textWhite' fontWeight='bold' align='center'>
           View Repo
         </StyledText>

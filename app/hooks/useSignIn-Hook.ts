@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form'
-
 import { Keyboard } from 'react-native'
+import { useDispatch } from 'react-redux'
+import { type UserDataType, userSessionSuccess } from '../store/features/UserSession/reducer'
 
 export const useSignIn = () => {
   const signInData = useForm({
@@ -11,10 +12,16 @@ export const useSignIn = () => {
   })
 
   const { control, handleSubmit, formState: { errors }, reset } = signInData
+  const dispatch = useDispatch()
 
-  const onSubmit = (data: any) => {
-    Keyboard.dismiss()
-    reset()
+  const onSubmit = (userData: UserDataType) => {
+    try {
+      Keyboard.dismiss()
+      dispatch(userSessionSuccess(userData))
+      reset()
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return {

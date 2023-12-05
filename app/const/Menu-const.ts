@@ -7,18 +7,21 @@ export const MenuTabs = [
     name: 'home',
     component: HomePage,
     label: 'Home',
-    icon: 'home'
+    icon: 'home',
+    user: false
   },
   {
     name: 'search',
     component: SearchPage,
     label: 'Search',
-    icon: 'search-circle'
+    icon: 'search-circle',
+    user: true
   },
   {
     name: 'signin',
     component: SignInPage,
     label: 'Signin',
-    icon: 'log-in'
+    icon: 'log-in',
+    user: false
   }
 ]

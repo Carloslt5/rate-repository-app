@@ -4,6 +4,8 @@ import theme from '../styles/theme'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { MenuTabs } from '../const/Menu-const'
+import { useSelector } from 'react-redux'
+import { type RootState } from '../store'
 
 const Tab = createBottomTabNavigator()
 
@@ -28,6 +30,8 @@ const styles = StyleSheet.create({
 })
 
 const AppRoutes = () => {
+  const { userSessionData } = useSelector((state: RootState) => state.userSessionData)
+
   return (
     <Tab.Navigator
       screenOptions={{
@@ -37,22 +41,24 @@ const AppRoutes = () => {
         tabBarInactiveTintColor: theme.colors.green500
       }}
     >
-      {MenuTabs.map((menu, index) => {
-        return (
-          <Tab.Screen
-            key={index}
-            name={menu.name}
-            component={menu.component}
-            options={{
-              headerShown: false,
-              tabBarLabel: menu.label,
-              tabBarIcon: ({ color }) => (
-                <Ionicons name={menu.icon} size={20} color={color} />
-              )
-            }}
-          />
-        )
-      })}
+      {MenuTabs
+        .filter((menu) => !menu.user || ((userSessionData != null) && menu.user))
+        .map((menu, index) => {
+          return (
+            <Tab.Screen
+              key={index}
+              name={menu.name}
+              component={menu.component}
+              options={{
+                headerShown: false,
+                tabBarLabel: menu.label,
+                tabBarIcon: ({ color }) => (
+                  <Ionicons name={menu.icon} size={20} color={color} />
+                )
+              }}
+            />
+          )
+        })}
     </Tab.Navigator>
   )
 }

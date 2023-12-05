@@ -8,7 +8,11 @@ const store = configureStore({
     count: amountSlice,
     searchData: searchDataSlice,
     repoData: repoDataSlice
-  }
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false // Disable middleware SerializableStateInvariantMiddleware
+    })
 })
 export default store
 export type RootState = ReturnType<typeof store.getState>

@@ -11,8 +11,8 @@ export const useSearchUser = () => {
 
   const handleSubmit = async () => {
     try {
-      Keyboard.dismiss()
       dispatch(searchUserRequest())
+      Keyboard.dismiss()
       const { data: userGithub } = await searchUserServices.getUser(searchText)
       const { data: repoData } = await searchUserServices.getRepositories(userGithub.login)
       dispatch(searchUserSuccess(userGithub))

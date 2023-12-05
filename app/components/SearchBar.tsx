@@ -19,6 +19,8 @@ const SearchBar = () => {
           onChangeText={setSearchText}
           value={searchText}
           placeholder="Search User"
+          keyboardType='web-search'
+          onSearch={handleSubmit}
         />
       </View>
       <View>

@@ -1,11 +1,12 @@
 import React from 'react'
-import { type StyleProp, StyleSheet, TextInput, type TextStyle, type TextInputProps, Platform } from 'react-native'
+import { type StyleProp, StyleSheet, TextInput, type TextInputProps, Platform } from 'react-native'
 import theme from './theme'
 import { useFocus } from '../hooks/useFocus-Hook'
 
 interface StyledInputProps extends TextInputProps {
-  style?: StyleProp<TextStyle>
+  style?: StyleProp<TextInputProps>
   error?: boolean
+  onSearch: () => void
 }
 
 const styles = StyleSheet.create({
@@ -30,7 +31,7 @@ const styles = StyleSheet.create({
   }
 })
 
-export const StyledInput = ({ error, style, ...props }: StyledInputProps) => {
+export const StyledInput = ({ onSearch, error, style, ...props }: StyledInputProps) => {
   const { isFocused, handleFocus, handleBlur } = useFocus()
 
   const inputStyle = [
@@ -45,6 +46,7 @@ export const StyledInput = ({ error, style, ...props }: StyledInputProps) => {
       style={inputStyle}
       onFocus={handleFocus}
       onBlur={handleBlur}
+      onSubmitEditing={onSearch}
       {...props} />
   )
 }

@@ -10,13 +10,9 @@ const UserGithubData = () => {
   const { searchData, searchLoading } = useSelector((state: RootState) => state.searchData)
   const { repoData } = useSelector((state: RootState) => state.repoData)
 
-  if (searchData === null && repoData === null) {
-    return null
-  }
-
   return (
     <ViewContainer>
-      {searchLoading && <Loader />}
+      {searchLoading ? <Loader /> : false}
       {(searchData !== null) && <UserGithubCard searchData={searchData} />}
       {(repoData !== null) && <RepositoryList repositoriesData={repoData} />}
     </ViewContainer>

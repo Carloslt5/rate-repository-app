@@ -6,7 +6,7 @@ import { useFocus } from '../hooks/useFocus-Hook'
 interface StyledInputProps extends TextInputProps {
   style?: StyleProp<TextInputProps>
   error?: boolean
-  onSearch: () => void
+  onSearch?: () => void
 }
 
 const styles = StyleSheet.create({

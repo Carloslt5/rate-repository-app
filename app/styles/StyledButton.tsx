@@ -1,5 +1,5 @@
 import React, { forwardRef, type Ref, type ReactNode } from 'react'
-import { Pressable, type PressableProps, StyleSheet, type StyleProp } from 'react-native'
+import { Pressable, type PressableProps, StyleSheet, type StyleProp, Platform } from 'react-native'
 import theme from './theme'
 
 interface StyledButtonProps extends PressableProps {
@@ -11,7 +11,12 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: theme.colors.green500,
     borderRadius: 8,
-    padding: 10
+    padding: 10,
+    ...Platform.select({
+      web: {
+        maxWidth: 500
+      }
+    })
   }
 })
 

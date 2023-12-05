@@ -20,8 +20,8 @@ export const useSearchUser = () => {
     } catch (error) {
       if (error instanceof AxiosError) {
         dispatch(searchUserRequestError())
-        setSearchText('')
         alert('User not found')
+        setSearchText('')
       }
     }
   }

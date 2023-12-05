@@ -15,7 +15,7 @@ const HomePage = () => {
       </View>
 
       <ViewContainer>
-        <Link href={'/signin'} asChild >
+        <Link href={'/signin'} asChild style={{ margin: 'auto', width: '100%' }}>
           <StyledButton>
             <StyledText color='textWhite' fontWeight='bold' align='center'>
               Sign Up

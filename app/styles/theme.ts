@@ -34,7 +34,8 @@ const theme = {
     PHP: '#7377AD',
     Ruby: '#AA1302',
     C: '#01427E',
-    Svelte: '#F63C00'
+    Svelte: '#F63C00',
+    Handlebars: 'black'
   }
 }
 

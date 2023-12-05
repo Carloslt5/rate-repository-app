@@ -16,6 +16,8 @@ export const getBackgroundColorForLanguage = (language: string) => {
       return theme.langugeColors.C
     case 'Svelte':
       return theme.langugeColors.Svelte
+    case 'Handlebars':
+      return theme.langugeColors.Handlebars
     default:
       return 'gray'
   }

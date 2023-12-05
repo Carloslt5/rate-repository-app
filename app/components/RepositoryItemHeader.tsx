@@ -3,14 +3,14 @@ import StyledText from '../styles/StyledText'
 import { type RepoData } from '../types/repoData.type'
 import ViewContainer from '../styles/ViewContainer'
 
-const RepositoryItemHeader = ({ name, description, language }: RepoData) => {
+export const RepositoryItemHeader = ({ name, description, language }: RepoData) => {
   return (
     <ViewContainer >
       <StyledText fontWeight="bold" color="textSecondary" fontSize='subheading'>
         {name}
       </StyledText >
       <StyledText color='textPrimary'>
-        {description}
+        {description ?? 'Description not available'}
       </StyledText >
       <StyledText fontSize='small' language={language}>
         {language ?? 'Unknown'}
@@ -18,5 +18,3 @@ const RepositoryItemHeader = ({ name, description, language }: RepoData) => {
     </ViewContainer >
   )
 }
-
-export default RepositoryItemHeader

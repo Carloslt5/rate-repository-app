@@ -1,28 +1,24 @@
 import React from 'react'
-import { View } from 'react-native'
 import StyledText from '../styles/StyledText'
-import { type Repository } from '../data/Repository.type'
 import { parseThousands } from '../utils/parseThousands'
+import { type RepoData } from '../types/repoData.type'
+import ViewContainer from '../styles/ViewContainer'
+import StyledButton from '../styles/StyledButton'
+import { Platform } from 'react-native'
 
-export const RepositoryStats: React.FC<Repository> = ({ forksCount, stargazersCount, ratingAverage, reviewCount }) => {
+export const RepositoryStats = ({ forks_count: forksCount, html_url: htmlURL }: RepoData) => {
   return (
-    <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-      <View style={{ alignItems: 'center' }}>
-        <StyledText fontWeight='bold'>Start:</StyledText >
-        <StyledText >{parseThousands(stargazersCount)}</StyledText >
-      </View>
-      <View style={{ alignItems: 'center' }}>
-        <StyledText fontWeight='bold'>Rating:</StyledText >
-        <StyledText >{parseThousands(ratingAverage)}</StyledText >
-      </View>
-      <View style={{ alignItems: 'center' }}>
+    <ViewContainer style={Platform.OS === 'web' ? { alignItems: 'flex-start' } : null}>
+      <ViewContainer flexDirection='row'>
         <StyledText fontWeight='bold'>Forks:</StyledText >
         <StyledText >{parseThousands(forksCount)}</StyledText >
-      </View>
-      <View style={{ alignItems: 'center' }}>
-        <StyledText fontWeight='bold'>Review:</StyledText >
-        <StyledText >{parseThousands(reviewCount)}</StyledText >
-      </View>
-    </View>
+      </ViewContainer>
+
+      <StyledButton >
+        <StyledText color='textWhite' fontWeight='bold' align='center'>
+          View Repo
+        </StyledText>
+      </StyledButton>
+    </ViewContainer>
   )
 }

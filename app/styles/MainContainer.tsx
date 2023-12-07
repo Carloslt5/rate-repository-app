@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginHorizontal: 'auto',
     padding: 10,
+    paddingBottom: 60,
     ...Platform.select({
       web: {
         padding: 10,

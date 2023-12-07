@@ -1,11 +1,14 @@
 import React from 'react'
-import { Platform, StyleSheet } from 'react-native'
+import { Platform, StyleSheet, TouchableOpacity } from 'react-native'
 import theme from '../styles/theme'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Ionicons from 'react-native-vector-icons/Ionicons'
-import { MenuTabs } from '../const/Menu-const'
 import { useSelector } from 'react-redux'
 import { type RootState } from '../store'
+import HomePage from '../(screens)/home'
+import SearchPage from '../(screens)/search'
+import SignInPage from '../(screens)/signin'
+import { useSignIn } from '../hooks/useSignIn-Hook'
 
 const Tab = createBottomTabNavigator()
 
@@ -31,6 +34,7 @@ const styles = StyleSheet.create({
 
 const AppRoutes = () => {
   const { userSessionData } = useSelector((state: RootState) => state.userSessionData)
+  const { logOut } = useSignIn()
 
   return (
     <Tab.Navigator
@@ -41,25 +45,50 @@ const AppRoutes = () => {
         tabBarInactiveTintColor: theme.colors.green500
       }}
     >
-      {MenuTabs
-        .filter((menu) => !menu.user || ((userSessionData != null) && menu.user))
-        .map((menu, index) => {
-          return (
-            <Tab.Screen
-              key={index}
-              name={menu.name}
-              component={menu.component}
-              options={{
-                headerShown: false,
-                tabBarLabel: menu.label,
-                tabBarIcon: ({ color }) => (
-                  <Ionicons name={menu.icon} size={20} color={color} />
-                )
-              }}
-            />
-          )
-        })}
-    </Tab.Navigator>
+
+      <Tab.Screen
+        name="home"
+        component={HomePage}
+        options={{
+          tabBarLabel: 'Home',
+          tabBarIcon: ({ color }) => <Ionicons name="home" size={20} color={color} />
+        }}
+      />
+      {userSessionData !== null &&
+        <Tab.Screen
+          name="search"
+          component={SearchPage}
+          options={{
+            tabBarLabel: 'Search',
+            tabBarIcon: ({ color }) => <Ionicons name="search-circle" size={20} color={color} />
+          }}
+        />
+      }
+      {userSessionData == null
+        ? <Tab.Screen
+          name="signin"
+          component={SignInPage}
+          options={{
+            tabBarLabel: 'Signin',
+            tabBarIcon: ({ color }) => <Ionicons name="log-in" size={20} color={color} />
+          }}
+        />
+        : <Tab.Screen
+          name="signout"
+          component={SignInPage}
+          options={{
+            tabBarLabel: 'Log out',
+            tabBarIcon: ({ color }) => <Ionicons name="log-out" size={20} color={color} />,
+            tabBarButton: ({ children, ...props }) => (
+              <TouchableOpacity {...props} onPress={logOut}>
+                {children}
+              </TouchableOpacity>
+            )
+          }}
+        />
+      }
+
+    </Tab.Navigator >
   )
 }
 

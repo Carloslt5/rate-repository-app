@@ -28,9 +28,13 @@ export const userSessionSlice = createSlice({
     userSessionSuccess: (state, action) => {
       state.userSessionData = action.payload
       state.userLoading = false
+    },
+    UserSessionOut: (state) => {
+      state.userSessionData = null
+      state.userLoading = false
     }
   }
 })
 
-export const { userSessionRequest, userSessionError, userSessionSuccess } = userSessionSlice.actions
+export const { userSessionRequest, userSessionError, userSessionSuccess, UserSessionOut } = userSessionSlice.actions
 export default userSessionSlice.reducer

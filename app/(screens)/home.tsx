@@ -20,7 +20,7 @@ const HomePage = () => {
       {
         (userSessionData !== null)
           ? <>
-            <StyledText>Holis 👍: </StyledText>
+            <StyledText>Welcome 👍: </StyledText>
             <StyledText> {userSessionData.email}</StyledText>
           </>
           : <ViewContainer>

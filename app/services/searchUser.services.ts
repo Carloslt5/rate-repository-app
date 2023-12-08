@@ -8,7 +8,7 @@ class SearchUserServices {
 
   constructor() {
     this.api = axios.create({
-      baseURL: `${GITHUB_API_URL}`
+      baseURL: `${GITHUB_API_URL}` ?? 'https://api.github.com'
     })
   }
 

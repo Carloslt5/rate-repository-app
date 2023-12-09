@@ -10,11 +10,10 @@ interface StyledFormProps extends ViewProps {
 const styles = StyleSheet.create({
   form: {
     width: '100%',
-    marginHorizontal: 'auto',
     rowGap: 20,
     ...Platform.select({
       web: {
-        width: '90%',
+        width: '100%',
         padding: 10,
         maxWidth: 500,
         borderRadius: 10,

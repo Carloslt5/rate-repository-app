@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     paddingBottom: 60,
     ...Platform.select({
       web: {
-        padding: 10,
+        paddingHorizontal: 0,
         justifyContent: 'center',
         width: '90%',
         maxWidth: 1200

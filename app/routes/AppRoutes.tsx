@@ -40,6 +40,7 @@ const AppRoutes = () => {
     <Tab.Navigator
       screenOptions={{
         headerShown: Platform.OS !== 'web',
+        headerStatusBarHeight: 0,
         tabBarStyle: styles.tab,
         tabBarActiveTintColor: theme.colors.green100,
         tabBarInactiveTintColor: theme.colors.green500

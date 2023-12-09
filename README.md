@@ -3,7 +3,7 @@
 “Rate Repositories App” is a mobile application developed with React Native that allows you to search for GitHub users, obtain their profiles, and list their repositories.
 
 ## Deploy
-
+https://rate-repository.netlify.app
 
 ### Mock User Login
 
